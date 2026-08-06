@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pele com AlmaDermatologista Dra. Paula | São Paulo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;1,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{--plum:#35183B;--rose:#B28371;--peach:#FFEEE2;--cream:#FFFCF9;--off:#FFF7F2;--gray:#8C8B8B;--line:#CACACA;--dark:#130316;--max-w:1200px;--gut:120px;--r:20px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);font-family:'Lato',sans-serif;color:var(--dark)}
+  img{display:block;max-width:100%}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-family:'Lato',sans-serif;font-weight:500;font-size:16px;cursor:pointer;border:none;transition:opacity .2s}
+  .btn:hover{opacity:.86}
+  .btn-rose{background:var(--rose);color:var(--cream)}
+  .btn-plum{background:var(--plum);color:var(--cream)}
+  .btn-ghost{background:transparent;border:1.5px solid var(--rose);color:var(--rose)}
+  .label{display:block;font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+  .h2{font-family:'Lato',sans-serif;font-size:48px;font-weight:600;line-height:1.15;color:var(--plum)}
+  .h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+
+  /* HEADER */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--line);padding:14px 0}
+  .header-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut);display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo svg{height:46px;width:auto}
+  nav{display:flex;gap:30px;align-items:center}
+  nav a{font-size:14px;font-weight:500;color:var(--plum);transition:color .2s}
+  nav a:hover{color:var(--rose)}
+
+  /* HERO */
+  .hero{padding-top:90px;min-height:100vh;display:flex;align-items:center;background:var(--cream)}
+  .hero-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
+  .hero-tag{display:inline-block;background:var(--peach);border-radius:100px;padding:6px 18px;font-size:13px;font-weight:600;color:var(--plum);margin-bottom:24px}
+  .hero-title{font-family:'Lato',sans-serif;font-size:62px;font-weight:600;line-height:1.12;color:var(--plum);margin-bottom:22px}
+  .hero-title em{font-family:'Playfair Display',serif;font-style:italic;font-weight:500}
+  .hero-desc{font-size:17px;line-height:1.7;color:var(--gray);max-width:460px;margin-bottom:32px}
+  .hero-benefits{display:flex;flex-direction:column;gap:10px;margin-bottom:34px}
+  .hero-benefit{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--dark);font-weight:500}
+  .hero-benefit-dot{width:28px;height:28px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:14px;color:white;flex-shrink:0}
+  .hero-benefit-dot svg{width:16px;height:16px;stroke-width:2.5}
+  .hero-btns{display:flex;gap:14px;align-items:center}
+  .hero-scroll{display:flex;align-items:center;gap:10px;margin-top:40px;color:var(--rose);font-size:14px;font-weight:500}
+  .hero-scroll-c{width:38px;height:38px;border:1.5px solid var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .hero-img-wrap{position:relative}
+  .hero-img-wrap>img{width:100%;height:600px;object-fit:cover;border-radius:var(--r)}
+  .hero-badge{position:absolute;bottom:36px;left:-24px;background:white;border-radius:16px;padding:16px 20px;box-shadow:0 8px 32px rgba(53,24,59,.12);display:flex;align-items:center;gap:12px}
+  .hero-badge-num{font-family:'Playfair Display',serif;font-style:italic;font-size:36px;color:var(--plum);line-height:1}
+  .hero-badge-txt{font-size:13px;color:var(--gray);line-height:1.4}
+  .hero-badge-txt strong{display:block;font-size:14px;color:var(--plum)}
+  .hero-badge2{position:absolute;top:36px;right:-24px;background:var(--plum);border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:4px}
+  .hero-badge2-label{font-size:11px;color:rgba(255,252,249,.6);letter-spacing:.5px;text-transform:uppercase}
+  .hero-badge2-val{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--peach);line-height:1}
+  .hero-badge2-sub{font-size:12px;color:rgba(255,252,249,.7)}
+
+  /* DRA. PAULA */
+  .section-paula{padding:110px 0;background:var(--off)}
+  .paula-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut);display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:center}
+  .paula-imgs{position:relative}
+  .paula-img-main{border-radius:var(--r);overflow:hidden;height:560px}
+  .paula-img-main img{width:100%;height:100%;object-fit:cover}
+  .paula-img-small{position:absolute;bottom:-28px;right:-28px;width:200px;height:200px;border-radius:16px;overflow:hidden;border:5px solid var(--off);box-shadow:0 8px 32px rgba(53,24,59,.1)}
+  .paula-img-small img{width:100%;height:100%;object-fit:cover}
+  .paula-cred-badge{position:absolute;top:28px;left:-24px;background:var(--plum);border-radius:14px;padding:14px 20px}
+  .paula-cred-name{font-size:15px;font-weight:600;color:var(--peach)}
+  .paula-cred-role{font-size:12px;color:rgba(255,238,226,.7);margin-top:2px}
+  .paula-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.55;color:var(--plum);border-left:3px solid var(--rose);padding-left:24px;margin:24px 0 32px}
+  .paula-bio{font-size:16px;line-height:1.75;color:var(--gray);margin-bottom:16px}
+  .paula-credentials{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:32px 0 36px}
+  .paula-cred-item{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px}
+  .paula-cred-item strong{font-size:14px;color:var(--plum);font-weight:600}
+  .paula-cred-item span{font-size:13px;color:var(--gray)}
+
+  /* FILOSOFIA */
+  .section-filosofia{padding:110px 0;background:var(--plum);position:relative;overflow:hidden}
+  .fil-graphic{position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(178,131,113,.2) 0%,transparent 70%);pointer-events:none}
+  .fil-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
+  .fil-label{color:rgba(255,238,226,.7);font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:20px;display:block}
+  .fil-title{font-family:'Lato',sans-serif;font-size:44px;font-weight:600;line-height:1.2;color:var(--cream);margin-bottom:24px}
+  .fil-title em{font-family:'Playfair Display',serif;font-style:italic;color:var(--peach)}
+  .fil-desc{font-size:17px;line-height:1.7;color:rgba(255,252,249,.7);margin-bottom:40px}
+  .fil-pillars{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+  .fil-pillar{display:flex;gap:18px;align-items:flex-start;padding:20px;background:rgba(255,252,249,.06);border:1px solid rgba(255,252,249,.1);border-radius:14px}
+  .fil-pillar-ico{width:44px;height:44px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .fil-pillar-txt strong{display:block;font-size:16px;color:var(--peach);margin-bottom:4px;font-weight:600}
+  .fil-pillar-txt span{font-size:14px;color:rgba(255,252,249,.65);line-height:1.5}
+  .fil-img-main{border-radius:var(--r);overflow:hidden;height:380px;margin-bottom:16px}
+  .fil-img-main img{width:100%;height:100%;object-fit:cover}
+  .fil-img-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fil-img-row div{border-radius:14px;overflow:hidden;height:160px}
+  .fil-img-row div img{width:100%;height:100%;object-fit:cover}
+
+  /* CONSULTA BANNER */
+  .section-consulta{padding:80px 0;background:var(--cream)}
+  .consulta-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut);background:var(--peach);border-radius:var(--r);padding:60px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .consulta-title{font-family:'Lato',sans-serif;font-size:40px;font-weight:600;line-height:1.2;color:var(--plum);margin-bottom:16px}
+  .consulta-title em{font-family:'Playfair Display',serif;font-style:italic}
+  .consulta-desc{font-size:16px;line-height:1.7;color:var(--gray);margin-bottom:32px}
+  .consulta-steps{display:flex;flex-direction:column;gap:16px}
+  .consulta-step{display:flex;gap:16px;align-items:flex-start}
+  .consulta-step-num{width:34px;height:34px;border-radius:50%;background:var(--plum);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--peach);flex-shrink:0}
+  .consulta-step-txt strong{display:block;font-size:15px;color:var(--plum);font-weight:600;margin-bottom:2px}
+  .consulta-step-txt span{font-size:14px;color:var(--gray);line-height:1.5}
+  .consulta-img{border-radius:14px;overflow:hidden;height:260px;margin-bottom:16px}
+  .consulta-img img{width:100%;height:100%;object-fit:cover}
+  .consulta-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .consulta-stat{background:white;border-radius:12px;padding:18px}
+  .consulta-stat-num{font-family:'Playfair Display',serif;font-style:italic;font-size:32px;color:var(--plum);line-height:1;margin-bottom:4px}
+  .consulta-stat-lbl{font-size:13px;color:var(--gray);line-height:1.4}
+
+  /* SERVIÇOS */
+  .section-servicos{padding:110px 0 80px;background:var(--off)}
+  .section-proc{padding:60px 0 110px;background:var(--rose)}
+  .section-proc .servicos-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .servicos-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .servicos-head{margin-bottom:56px;max-width:620px}
+  .servicos-head p{font-size:16px;line-height:1.7;color:var(--gray);margin-top:12px}
+  .servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
+  .srv-card{border-radius:var(--r);overflow:hidden;border:1.5px solid var(--line);background:white;display:flex;flex-direction:column;transition:all .3s}
+  .srv-card:hover{border-color:var(--rose);box-shadow:0 8px 24px rgba(53,24,59,.08)}
+  .srv-card-img{height:200px;overflow:hidden}
+  .srv-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .srv-card:hover .srv-card-img img{transform:scale(1.04)}
+  .srv-card-body{padding:28px;flex:1;display:flex;flex-direction:column;gap:10px}
+  .srv-card-cat{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--rose)}
+  .srv-card-title{font-family:'Lato',sans-serif;font-size:21px;font-weight:600;color:var(--plum);line-height:1.3}
+  .srv-card-desc{font-size:14px;color:var(--gray);line-height:1.55}
+  .srv-list{list-style:none;display:flex;flex-direction:column;gap:7px;flex:1}
+  .srv-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--dark);line-height:1.4}
+  .srv-list li::before{content:'';display:inline-flex;width:18px;height:18px;background:var(--rose);border-radius:50%;align-items:center;justify-content:center;flex-shrink:0;color:white;font-size:11px;font-weight:bold;margin-right:-8px}
+  .srv-cta{display:inline-flex;align-items:center;gap:8px;background:var(--rose);color:var(--cream);padding:11px 20px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;align-self:flex-start;margin-top:6px;transition:opacity .2s}
+  .srv-cta:hover{opacity:.88}
+  .proc-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .proc-card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;background:white}
+  .proc-card:nth-child(3n){border-right:none}
+  .proc-card:nth-child(n+4){border-bottom:none}
+  .proc-card-img{height:190px;overflow:hidden}
+  .proc-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .proc-card:hover .proc-card-img img{transform:scale(1.04)}
+  .proc-card-body{padding:24px 24px 28px;flex:1;display:flex;flex-direction:column;gap:8px}
+  .proc-card-title{font-family:'Lato',sans-serif;font-size:18px;font-weight:600;color:var(--plum);line-height:1.35}
+  .proc-card-desc{font-size:14px;color:var(--gray);line-height:1.6;flex:1}
+  .proc-cta{display:inline-flex;align-items:center;gap:7px;background:var(--rose);color:var(--cream);padding:10px 18px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.5px;text-transform:uppercase;border:none;cursor:pointer;align-self:flex-start;margin-top:6px;transition:opacity .2s}
+  .proc-cta:hover{opacity:.88}
+  .aico{width:13px;height:13px}
+
+  /* JORNADA */
+  .section-jornada{padding:110px 0;background:var(--off)}
+  .jornada-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .jornada-head{text-align:center;margin-bottom:70px}
+  .jornada-head p{max-width:440px;margin:12px auto 0;font-size:15px;color:var(--gray);line-height:1.65}
+  .jornada-body{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .jornada-img{border-radius:var(--r);overflow:hidden;height:580px}
+  .jornada-img img{width:100%;height:100%;object-fit:cover}
+  .jornada-steps{display:flex;flex-direction:column}
+  .jornada-step{display:grid;grid-template-columns:90px 1fr;gap:20px;padding-bottom:36px;position:relative}
+  .jornada-step:not(:last-child)::after{content:'';position:absolute;left:45px;top:90px;bottom:0;width:1px;background:var(--line)}
+  .jornada-num{width:90px;height:90px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  .jornada-num.filled{background:var(--plum)}
+  .jornada-num.outline{border:2px solid var(--line)}
+  .jornada-num span{font-family:'Playfair Display',serif;font-style:italic;font-size:30px}
+  .jornada-num.filled span{color:var(--peach)}
+  .jornada-num.outline span{color:var(--plum)}
+  .jornada-txt{padding-top:18px}
+  .jornada-txt strong{display:block;font-size:20px;font-weight:500;color:var(--plum);margin-bottom:8px;line-height:1.3}
+  .jornada-txt p{font-size:15px;color:var(--gray);line-height:1.65}
+
+  /* COUNTERS */
+  .section-counters{padding:100px 0;background:var(--cream)}
+  .counters-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut);display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
+  .counter{background:white;border:1.5px solid var(--line);border-radius:24px;padding:52px 44px;display:flex;align-items:center;gap:36px;transition:all .3s cubic-bezier(.25,.46,.45,.94)}
+  .counter:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(53,24,59,.12);border-color:var(--rose)}
+  .counter-ico{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--peach),rgba(255,238,226,.7));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:42px}
+  .counter-content{flex:1}
+  .counter-num{font-family:'Playfair Display',serif;font-style:italic;font-size:56px;line-height:1;color:var(--plum);margin-bottom:6px;font-weight:500}
+  .counter-lbl{font-size:17px;font-weight:500;color:var(--dark);line-height:1.5}
+
+  /* COMPARAÇÃO */
+  .section-comp{padding:0 50px 80px;background:var(--cream)}
+  .comp-box{background:var(--rose);border-radius:var(--r);overflow:hidden;height:480px;position:relative;display:flex;align-items:center;justify-content:center}
+  .comp-imgs{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+  .comp-imgs img{width:100%;height:100%;object-fit:cover}
+  .comp-imgs img:first-child{filter:grayscale(80%)}
+  .comp-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--cream)}
+  .comp-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--plum);display:flex;align-items:center;justify-content:center;color:white;font-size:18px;box-shadow:0 4px 20px rgba(0,0,0,.25);z-index:2}
+  .comp-label-top{position:absolute;top:36px;left:56px;font-family:'Playfair Display',serif;font-style:italic;font-size:44px;color:var(--cream);z-index:2}
+  .comp-label-bottom{position:absolute;bottom:36px;right:56px;font-family:'Playfair Display',serif;font-style:italic;font-size:44px;color:var(--cream);text-align:right;z-index:2}
+
+  /* CONTEÚDO YT + IG */
+  .section-conteudo{padding:110px 0;background:var(--cream)}
+  .conteudo-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .conteudo-head{text-align:center;margin-bottom:56px}
+  .conteudo-head p{max-width:480px;margin:12px auto 0;font-size:15px;color:var(--gray);line-height:1.65}
+  .conteudo-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .yt-card{background:white;border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;transition:all .3s cubic-bezier(.25,.46,.45,.94)}
+  .yt-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(255,0,0,.12);border-color:#FF0000}
+  .yt-header{padding:32px 36px;display:flex;align-items:center;gap:16px;border-bottom:2px solid var(--line)}
+  .yt-ico{width:52px;height:52px;background:linear-gradient(135deg,#FF0000,#CC0000);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;flex-shrink:0;box-shadow:0 4px 12px rgba(255,0,0,.2)}
+  .yt-channel-name{font-size:19px;font-weight:700;color:var(--plum)}
+  .yt-channel-sub{font-size:14px;color:var(--gray);margin-top:2px}
+  .yt-videos{display:flex;flex-direction:column;gap:0;margin:24px 0}
+  .yt-video-item{display:flex;gap:16px;align-items:center;padding:18px 32px;border-top:1px solid var(--line);cursor:pointer;transition:background .2s}
+  .yt-video-item:hover{background:rgba(178,131,113,.04)}
+  .yt-thumb{width:100px;height:68px;border-radius:10px;overflow:hidden;flex-shrink:0;position:relative;border:1px solid var(--line)}
+  .yt-thumb img{width:100%;height:100%;object-fit:cover}
+  .yt-play{position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .yt-video-title{font-size:15px;font-weight:500;color:var(--plum);line-height:1.35;margin-bottom:4px}
+  .yt-video-meta{font-size:12px;color:var(--gray)}
+  .yt-footer{padding:24px 32px 28px;border-top:1px solid var(--line)}
+  .ig-card{background:white;border-radius:var(--r);overflow:hidden;border:1.5px solid var(--line);transition:all .3s cubic-bezier(.25,.46,.45,.94)}
+  .ig-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(178,131,113,.12);border-color:var(--rose)}
+  .ig-header{padding:32px 36px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--line)}
+  .ig-profile{display:flex;align-items:center;gap:14px}
+  .ig-avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2.5px solid var(--rose);box-shadow:0 2px 8px rgba(178,131,113,.15)}
+  .ig-avatar img{width:100%;height:100%;object-fit:cover}
+  .ig-name{font-size:17px;font-weight:700;color:var(--plum)}
+  .ig-handle{font-size:14px;color:var(--gray);margin-top:2px}
+  .ig-follow-btn{background:linear-gradient(135deg,var(--rose),#A56F54);color:white;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px rgba(178,131,113,.2)}
+  .ig-follow-btn:hover{opacity:.92;transform:translateY(-2px);box-shadow:0 6px 16px rgba(178,131,113,.3)}
+  .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:24px 36px}
+  .ig-post{height:148px;overflow:hidden;position:relative;cursor:pointer;border-radius:10px;border:1px solid rgba(178,131,113,.1)}
+  .ig-post img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+  .ig-post:hover img{transform:scale(1.1)}
+  .ig-post-ov{position:absolute;inset:0;background:rgba(53,24,59,0);display:flex;align-items:center;justify-content:center;color:white;font-size:20px;transition:all .3s;opacity:0}
+  .ig-post:hover .ig-post-ov{background:rgba(53,24,59,.6);opacity:1}
+  .ig-footer{padding:24px 36px;display:flex;align-items:center;justify-content:center;border-top:2px solid var(--line)}
+  .ig-footer a{font-weight:600}
+
+  /* BLOG */
+  .section-blog{padding:110px 0;background:var(--off)}
+  .blog-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .blog-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px}
+  .blog-head p{font-size:15px;color:var(--gray);margin-top:8px}
+  .blog-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+  .blog-card{background:white;border-radius:var(--r);overflow:hidden;border:1.5px solid var(--line);display:flex;flex-direction:column;transition:all .3s}
+  .blog-card:hover{border-color:var(--rose);box-shadow:0 8px 24px rgba(53,24,59,.08)}
+  .blog-card-img{overflow:hidden}
+  .blog-card-img img{width:100%;object-fit:cover;transition:transform .4s}
+  .blog-card-img.big img{height:260px}
+  .blog-card-img.sm img{height:180px}
+  .blog-card:hover .blog-card-img img{transform:scale(1.04)}
+  .blog-card-body{padding:24px;flex:1;display:flex;flex-direction:column;gap:8px}
+  .blog-card-tag{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--rose)}
+  .blog-card-title{font-family:'Lato',sans-serif;font-size:18px;font-weight:600;color:var(--plum);line-height:1.35}
+  .blog-card-desc{font-size:14px;color:var(--gray);line-height:1.6;flex:1}
+  .blog-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+  .blog-card-date{font-size:12px;color:var(--gray)}
+  .blog-card-link{font-size:13px;font-weight:600;color:var(--rose)}
+
+  /* DEPOIMENTOS */
+  .section-depo{padding:110px 0;background:var(--cream)}
+  .depo-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .depo-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-bottom:48px}
+  .depo-head p{font-size:15px;color:var(--gray);margin-top:8px}
+  .depo-head p strong{color:var(--plum)}
+  .depo-nav{display:flex;gap:10px}
+  .depo-btn{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:17px}
+  .depo-btn.prev{background:var(--rose);color:white}
+  .depo-btn.next{background:var(--plum);color:white}
+  .depo-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .depo-card{background:white;border-radius:var(--r);padding:36px;border:1px solid var(--line)}
+  .depo-qmark{font-family:'Playfair Display',serif;font-size:72px;line-height:.6;color:var(--peach);margin-bottom:12px;display:block}
+  .depo-txt{font-family:'Lato',sans-serif;font-style:italic;font-size:17px;line-height:1.65;color:var(--gray);margin-bottom:28px}
+  .depo-foot{display:flex;align-items:center;justify-content:space-between}
+  .depo-author-name{font-size:16px;font-weight:500;color:var(--plum)}
+  .depo-author-tag{font-size:13px;color:var(--rose);margin-top:2px}
+  .depo-rating{display:flex;align-items:center;gap:5px;font-size:15px;font-weight:500;color:var(--plum)}
+  .star{color:#d4a853}
+
+  /* FAQs */
+  .section-faq{padding:110px 0;background:var(--off)}
+  .faq-in{max-width:var(--max-w);margin-inline:auto;padding-inline:var(--gut)}
+  .faq-head{text-align:center;margin-bottom:56px}
+  .faq-head p{max-width:400px;margin:12px auto 0;font-size:15px;color:var(--gray);line-height:1.65}
+  .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 0}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer}
+  .faq-q-txt{font-size:15px;font-weight:600;color:var(--plum);line-height:1.4}
+  .faq-ico{width:22px;height:22px;border-radius:50%;background:var(--peach);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--plum);flex-shrink:0}
+  .faq-a{font-size:14px;color:var(--gray);line-height:1.65;margin-top:12px;display:none}
+  .faq-item.open .faq-a{display:block}
+  .faq-item.open .faq-q-txt{color:var(--rose)}
+
+  /* FOOTER */
+  footer{background:var(--plum);border-radius:var(--r);margin:0 50px 50px;overflow:hidden}
+  .footer-top{padding:72px 80px 56px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:60px}
+  .footer-brand-desc{font-size:14px;line-height:1.65;color:rgba(255,252,249,.6);margin:20px 0 24px;max-width:280px}
+  .footer-socials{display:flex;gap:10px}
+  .footer-soc{width:36px;height:36px;border-radius:50%;background:rgba(255,252,249,.1);display:flex;align-items:center;justify-content:center;color:var(--peach);font-size:13px;font-weight:600;cursor:pointer;transition:background .2s}
+  .footer-soc:hover{background:var(--rose)}
+  .footer-col-title{font-size:15px;font-weight:500;color:var(--cream);margin-bottom:18px}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .footer-links a{font-size:14px;color:rgba(255,252,249,.6);transition:color .2s}
+  .footer-links a:hover{color:var(--peach)}
+  .footer-contact{display:flex;flex-direction:column;gap:12px}
+  .footer-contact-item{font-size:14px;color:rgba(255,252,249,.6);line-height:1.5}
+  .footer-bottom{border-top:1px solid rgba(255,238,226,.1);padding:20px 80px;display:flex;align-items:center;justify-content:space-between}
+  .footer-bottom p{font-size:13px;color:rgba(255,252,249,.4)}
+  .scroll-up{position:fixed;bottom:30px;right:30px;z-index:99;width:46px;height:46px;border-radius:50%;background:var(--plum);color:white;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 4px 18px rgba(53,24,59,.25);border:none;opacity:0;pointer-events:none;transition:opacity .2s}
+  .scroll-up.vis{opacity:1;pointer-events:auto}
+  .counter-ico svg{width:42px;height:42px;stroke:var(--rose);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .fil-pillar-ico svg{width:22px;height:22px;stroke:white;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-in">
+    <div class="logo">
+      <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 535.9 152.4"><defs><style>.st0{fill:#010101}.st1{fill:#fcfcfc}.st2{fill:#020202}.st3{fill:#c4c4c4}.st4{fill:#f1f1f1}.st5{fill:#efefef}.st6{fill:#fefefe}.st7{fill:#040404}.st8{fill:#f7f7f7}.st9{fill:#fdfdfd}</style></defs><path class="st0" d="M401.7,67.2l12.3-2.4,6.4-48c.4-1.6,2.6-.7,3.2.2,1.2,2-1.5,8.1-1.9,10.6-1.9,10.8-3.5,24.2-4.4,35.1s-.2,1.8,0,2,2.7-.5,1.7,1.5-2.2.6-2.4,1.3c.2,10.8-2.6,25.4,1.4,35.7,6.5,16.5,17.8-10.6,19.4-16.9,1.3-5.1.9-11.4,2.2-16.3s1.4-2.5,3.5-2.2c-.3,5-2.2,9.6-2.9,14.7-.5,3.8-.7,7.7-.7,11.6l4.1-14.1c10.7-22.2,10.2,7.1,12.7,15.3,1.2.2,1.4-.6,1.9-1.4,1.9-3,4.9-15.7,8.6-16,5.6-.5,3.6,16.6,8.4,17.4s7.4-5.5,8.3-7.9.6-3.4,1.3-5.3c1.8-4.4,7.1-7.5,11.9-6.4s1.7,3.1,1.6,5.5c-.1,3.9,0,9.4,2.3,12.7,4.5,6.7,13.7-7.1,17.2-9.4s1.5-.2,1.5.3-7.1,7.2-8.1,8.1c-11.6,9.4-12.9,1-15.6-9.5-3,5.5-8.5,24.5-12.3,7.8-3.3,2.1-4.8,6.4-9.3,6-6.7-.6-5.6-16.2-7.8-16.2-3.8,2.3-5.2,14-8.1,15.8-5.6,3.4-6.6-8.9-7.1-12s0-7.8-2.2-10.4c-1.9,0-5.4,10.7-5.9,12.7s-1.5,10.6-2.2,11.6-2.5.8-3,.2,0-4.4,0-5.6.4-2.2-.6-2.1c-2.3,6.2-9.5,24.3-18.6,17.6-3-2.2-4.1-6.8-4.7-10.3-1.6-9.7-.7-20.6.4-30.3-.4-.6-.5-.7-1.2-.7-1.4,0-10,1.3-10.8,1.8s-.6,1.1-.6,1.8c.4,19.5-.4,39.1,0,58.6,0,1.3,1.9,9.9-.9,9.2s-.9-9.5-.9-11.6c.1-5.8,0-11.7,0-17.3,0-13.3,0-26.5,0-39.8-.7-.6-10.3,2.2-12,2.7s-9.2,2.7-9.5,3.7c-.2,5.4-1.4,10.7-1.9,16.1s-1,12.6.1,18.4,1.8,4,2.2,6.4c-1.4.1-2.9-.1-3.9-1.2-5-5.6-.4-30.9-.3-38.8-4.3-.5-9.6,5.2-13.2,4.5-3.4-.7,1.4-2.8,2.6-3.4,3.6-1.7,7.5-2.5,11.2-3.9,2.9-14.6,5.4-29.5,10-43.7s4.7-14.7,7.8-15.6c4.9-1.4,6,4.8,6.6,8.1,1,5.4,1.2,12.7,1.4,18.3.3,8.5-.6,17,.6,25.4Z"/><path class="st0" d="M51.9,91.1c-.4,4,.8,30.4-.7,31.6s-2.2,0-2.9,0c1.1-8.2.3-16.5.6-24.8s1.1-4.3.6-6.6-5.8-1.6-5.4-7.8,4.3-5.7,5.7-8.7,1.2-18,1.5-23,1.1-10.6,1.5-15.8c2.1-2.2,3.8-1.8,4,1.5s-1.9,12-2.4,16.7c-.7,6-1.2,12.2-1.2,18.2.4.5,4.1-2.1,5-2.5,2.5-1.1,17-6.1,18.4-4.7s.2,1.5-.4,1.8c-1.4,1.1-3.5,0-5.2,0-2.4.2-17.4,6.2-18.3,7.8l-.7,14.2c16.8.7,31.9-14.8,39.7-28.3C117,17,69.9,4.5,37.6,24c-4.9,2.9-21.9,16.3-17.8,23s6.2,3,2.3,4.1-5.9-4.3-5.5-7.3c1.5-10.1,20-22.1,28.9-25.7,23.5-9.4,62.7-6.8,55.9,27.6s-27.5,45.7-49.5,45.4Z"/><path class="st2" d="M281.7,98.3c1.5-7.5,2.3-15.4,4.5-22.7.9-2.9,2.6-10,6.5-8.9s3.2,19.9,3.4,24.1c1.2,7,2.3,4.8,4.3.1s2-7.4,4-10.4,2.8-4,4.6-1.3,2.9,19.3,9.6,15.4,2.3-4.5,4.6-5c-8,17.4-15.2,2.1-17.1-8.7-2.6,2.9-5,15.7-8.5,16.6s-3.2-1.4-3.6-3.3c-1.5-6.2-.8-14.8-1.4-21.4s-.8-6.2-3.1-1.9c-4.1,7.6-4.1,21.4-6.6,29.8-.5,1.9-2.9,2.1-4.1.8s-.7-11-.6-13.2c.5-8.1,4.2-19,4.2-26.3s-3.4-3-6-1.1c-3.8,2.7-7.7,6.5-11.5,9.5s-9.5,6.3-9.9,6.9c-.6,1,1.3,7.2,1.3,9.4.2,16.6-13.3,14.8-12.7-.4-4.8,6.2-18.1,19.6-25.8,10.8-5.3-6-4.1-17.9,2.4-22.7,1.8-1.3,7.5-3,8.6-1.1s-.3,3.2-2.3,2-.3-2.9-4-.4c-5.4,3.5-5.6,23.1,2.5,23.5,5,.2,14.3-8.2,17.4-12s3.7-7.8,5.5-8.9,3.8,0,5.5-.5,11.3-8.1,13.9-10.1,17.7-17,18-5.9-3.3,18.7-4.1,26.9-.8,6.8-.7,8.4.2,1.9,1.2,2.1Z"/><path class="st0" d="M139.5,52.3c.2-3.4,0-4.2-.6-2.4-3,10.7-11.3,42.8-22,47.2-11.3,4.6-16.4-15-8.1-22.4,5.1-4.5,8,.9,4.5,5.7s-4.8,2.8-5.1,4.5c-.8,4.2,2.4,12.3,7.6,10.6s14.3-23.3,16.5-30.2c4.8-14.7,8.8-30.6,10.6-45.9,3-.4,2.5,2.2,2.4,4.5-1.1,17.3-4.3,34.8-4.8,52.6-.3,9.8-.9,27.3,1.3,36.4s3.2,5.8,2,7.6c-2.2,1.8-3.6-1.3-4.1-3.1-2.8-9.9-2-34.5-1.6-45.6s1.4-12.9,1.2-19.4Z"/><path class="st7" d="M162.7,81.4c-3,3.1-6.6.3-7.4,6-2.4,15.7,11.6,10.1,19,4,1.5-1.2,6.4-7.2,6.9-7.5s1.2.2.9.9-3.9,5.2-4.8,6c-4.7,4.4-17.4,11.3-23.1,6.3-5.4-4.7,0-21.3,6.8-22.6s4.2,4.3,1.8,6.8Z"/><path class="st3" d="M139.5,52.3c0-.8.3-2-.6-2.4.2-.8.2-2.9,1.2-3l-.6,5.4Z"/><path class="st6" d="M378.9,73.8c2.1-11.2,3.9-22.5,6.9-33.5,1.1-4.1,5.3-18.4,7.8-20.9s2.9-.1,3.6,2.4c2.1,7.2,2.5,21.7,2.7,29.6s.5,14.3-.1,16.1-.4.8-.9.9l-20,5.5Z"/><path class="st1" d="M486.3,95.9c-.6-.4-.7-4.6-.6-5.7.2-3.3,2.9-12,6.4-12.7s2.9,1.4,2.3,4.1-4.5,12.7-6,13.8-1.6.9-2.1.6Z"/><path class="st8" d="M49.5,88.1c-6.2-1.3-3.7-8.5.6-10.8l-.6,10.8Z"/><path class="st9" d="M250.9,78.7c4.7-1.2,4.6,12.7,2.3,16-6.8,9.8-7.9-14.6-2.3-16Z"/><path class="st5" d="M113.7,75c1.4,2.1-3.3,8-4.8,6.6s2.2-7.7,4.8-6.6Z"/><path class="st4" d="M157.5,82.2c0-2.3,2.1-4.9,4.3-5.5s.8,3.3-.4,4.4-2.4,1.3-3.9,1.2Z"/></svg>
+    </div>
+    <nav>
+      <a href="#paula">Dra. Paula</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#conteudo">Conteúdo</a>
+      <a href="#blog">Blog</a>
+      <a href="#depo">Depoimentos</a>
+      <a href="#consulta" class="btn btn-rose">Agendar consulta</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-in">
+    <div>
+      <span class="hero-tag">Dermatologista em São PauloParaíso</span>
+      <h1 class="hero-title">Sua pele <em>merece</em><br>ser cuidada com<br>confiança</h1>
+      <p class="hero-desc">Mais do que tratar a pele, a Dra. Paula ouve sua história, entende suas necessidades e constrói com você um caminho de cuidado real e transparente.</p>
+      <div class="hero-benefits">
+        <div class="hero-benefit"><div class="hero-benefit-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>Avaliação médica completa antes de qualquer indicação</div>
+        <div class="hero-benefit"><div class="hero-benefit-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>Comunicação clara e sem jargões</div>
+        <div class="hero-benefit"><div class="hero-benefit-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>Resultado natural e progressivo</div>
+        <div class="hero-benefit"><div class="hero-benefit-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>+18 anos de dedicação à dermatologia</div>
+      </div>
+      <div class="hero-btns">
+        <a href="#consulta" class="btn btn-rose">Agendar minha consulta</a>
+        <a href="#paula" class="btn btn-ghost">Conheça a Dra. Paula</a>
+      </div>
+      <div class="hero-scroll"><div class="hero-scroll-c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="12 5 12 19 5 12 12 19 19 12"></polyline></svg></div>Role para baixo</div>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=800&q=80" alt="Dra. Paula" />
+      <div class="hero-badge">
+        <div class="hero-badge-num">5.0</div>
+        <div class="hero-badge-txt"><strong>Nota na Doctoralia</strong>+400 avaliações verificadas</div>
+      </div>
+      <div class="hero-badge2">
+        <div class="hero-badge2-label">Pacientes atendidos</div>
+        <div class="hero-badge2-val">+10k</div>
+        <div class="hero-badge2-sub">em 18 anos de carreira</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRA. PAULA -->
+<section class="section-paula" id="paula">
+  <div class="paula-in">
+    <div class="paula-imgs">
+      <div class="paula-img-main"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=700&q=80" alt="Dra. Paula" /></div>
+      <div class="paula-img-small"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Consultório" /></div>
+      <div class="paula-cred-badge"><div class="paula-cred-name">Dra. Paula</div><div class="paula-cred-role">CRM-SPDermatologista</div></div>
+    </div>
+    <div>
+      <span class="label">Quem é a Dra. Paula</span>
+      <h2 class="h2" style="margin-bottom:0">A médica que acredita que cuidar da pele começa pela <em>escuta</em></h2>
+      <blockquote class="paula-quote">"Cada paciente chega com uma história única. Meu papel é entender essa história antes de sugerir qualquer caminho."</blockquote>
+      <p class="paula-bio">Formada em Medicina pela UNESP, com residência em Clínica Médica e Dermatologia, especialização em Urticária e Farmacodermia pela UNIFESP, MBA em Gestão pela USP e formação em Medicina Tradicional Chinesa.</p>
+      <p class="paula-bio">Com mais de 18 anos de prática clínica, cirúrgica e estética, é reconhecida pela clareza na comunicação, pelo olhar individualizado e pela busca por uma dermatologia mais preventiva e humanizada.</p>
+      <div class="paula-credentials">
+        <div class="paula-cred-item"><strong>UNESP</strong><span>Medicina + Residência Dermatologia</span></div>
+        <div class="paula-cred-item"><strong>UNIFESP</strong><span>Especialização Urticária e Farmacodermia</span></div>
+        <div class="paula-cred-item"><strong>USP</strong><span>MBA em Gestão</span></div>
+        <div class="paula-cred-item"><strong>Med. Tradicional Chinesa</strong><span>Formação complementar integrativa</span></div>
+      </div>
+      <a href="#consulta" class="btn btn-rose">Agendar uma consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- FILOSOFIA -->
+<section class="section-filosofia">
+  <div class="fil-graphic"></div>
+  <div class="fil-in">
+    <div>
+      <span class="fil-label">Filosofia de cuidado</span>
+      <h2 class="fil-title">Um cuidado que <em>vende confiança</em>, não procedimentos</h2>
+      <p class="fil-desc">A Pele com Alma nasceu de uma convicção: antes de qualquer tratamento, existe uma pessoa. O cuidado real começa pelo acolhimento, pela educação e pela transparência.</p>
+      <div class="fil-pillars">
+        <div class="fil-pillar"><div class="fil-pillar-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div class="fil-pillar-txt"><strong>Confiança primeiro</strong><span>A relação médico-paciente é construída com transparência, respeito e comunicação honesta.</span></div></div>
+        <div class="fil-pillar"><div class="fil-pillar-ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="12" y2="11"/></svg></div><div class="fil-pillar-txt"><strong>Educação como cuidado</strong><span>Informar é parte do tratamento. Pacientes informados tomam melhores decisões sobre sua saúde.</span></div></div>
+        <div class="fil-pillar"><div class="fil-pillar-ico"><svg viewBox="0 0 24 24"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></div><div class="fil-pillar-txt"><strong>Resultado natural</strong><span>Beleza com alma respeita quem você é — sem exageros, com cuidado e progressividade.</span></div></div>
+      </div>
+      <a href="#paula" class="btn btn-rose">Saiba mais sobre a Dra. Paula</a>
+    </div>
+    <div>
+      <div class="fil-img-main"><img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=700&q=80" alt="Consulta" /></div>
+      <div class="fil-img-row">
+        <div><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80" alt="Tratamento" /></div>
+        <div><img src="https://images.unsplash.com/photo-1629909614739-f9b9c5d37ae8?w=400&q=80" alt="Cuidado" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTA BANNER -->
+<section class="section-consulta" id="consulta">
+  <div class="consulta-in">
+    <div>
+      <span class="label">Antes de qualquer coisa</span>
+      <h2 class="consulta-title">Tudo começa com uma <em>consulta personalizada</em></h2>
+      <p class="consulta-desc">Antes de indicar qualquer tratamento, a Dra. Paula realiza uma avaliação completa e individual — conhecendo sua pele, sua saúde e seus objetivos, sem pressa.</p>
+      <div class="consulta-steps">
+        <div class="consulta-step"><div class="consulta-step-num">01</div><div class="consulta-step-txt"><strong>Avaliação completa da pele</strong><span>Histórico, queixas e condições específicas de cada paciente.</span></div></div>
+        <div class="consulta-step"><div class="consulta-step-num">02</div><div class="consulta-step-txt"><strong>Diagnóstico transparente</strong><span>Cada etapa explicada com clareza para que você entenda tudo.</span></div></div>
+        <div class="consulta-step"><div class="consulta-step-num">03</div><div class="consulta-step-txt"><strong>Plano de cuidado individualizado</strong><span>Somente após a consulta são indicados os caminhos mais adequados.</span></div></div>
+      </div>
+      <a href="#" class="btn btn-plum" style="margin-top:32px">Agendar minha consulta →</a>
+    </div>
+    <div>
+      <div class="consulta-img"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Consulta" /></div>
+      <div class="consulta-stats">
+        <div class="consulta-stat"><div class="consulta-stat-num">+18</div><div class="consulta-stat-lbl">anos de experiência</div></div>
+        <div class="consulta-stat"><div class="consulta-stat-num">5.0</div><div class="consulta-stat-lbl">Média na Doctoralia</div></div>
+        <div class="consulta-stat"><div class="consulta-stat-num">+10k</div><div class="consulta-stat-lbl">pacientes atendidos</div></div>
+        <div class="consulta-stat"><div class="consulta-stat-num">+400</div><div class="consulta-stat-lbl">avaliações verificadas</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="section-servicos" id="servicos">
+  <div class="servicos-in">
+    <div class="servicos-head">
+      <span class="label">Áreas de atuação</span>
+      <h2 class="h2">O que a Dra. Paula <em>pode fazer</em> por você</h2>
+      <p>Cada área de atuação tem um propósito: cuidar da sua pele com responsabilidade, progressividade e atenção à sua saúde como um todo.</p>
+    </div>
+    <div class="servicos-grid">
+      <div class="srv-card">
+        <div class="srv-card-img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Dermatologia Clínica"/></div>
+        <div class="srv-card-body">
+          <span class="srv-card-cat">Dermatologia Clínica</span>
+          <div class="srv-card-title">Dermatologia Clínica</div>
+          <p class="srv-card-desc">Doenças e patologias da pele, cabelo e unhas. Algumas indicações:</p>
+          <ul class="srv-list"><li>Acne e espinhas ativas</li><li>Lesões de pele</li><li>Alergias e dermatites</li><li>Queda de cabelo</li><li>Micoses</li><li>Coceiras e rosácea</li></ul>
+          <a href="#consulta" class="srv-cta">Agende sua consulta ↗</a>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-card-img"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=80" alt="Dermatologia Cirúrgica"/></div>
+        <div class="srv-card-body">
+          <span class="srv-card-cat">Dermatologia Cirúrgica</span>
+          <div class="srv-card-title">Dermatologia Cirúrgica</div>
+          <p class="srv-card-desc">Pequenas cirurgias e procedimentos com segurança. Algumas indicações:</p>
+          <ul class="srv-list"><li>Verrugas / tumor de pele</li><li>Remoção de cistos e pintas</li><li>Unha encravada</li><li>Cicatrizes e queloides</li><li>Lóbulo de orelha fendido</li><li>Câncer de pele</li></ul>
+          <a href="#consulta" class="srv-cta">Agende sua consulta ↗</a>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-card-img"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Dermatologia Estética"/></div>
+        <div class="srv-card-body">
+          <span class="srv-card-cat">Dermatologia Estética</span>
+          <div class="srv-card-title">Dermatologia Estética</div>
+          <p class="srv-card-desc">Envelhecimento e qualidade da pele com naturalidade. Algumas indicações:</p>
+          <ul class="srv-list"><li>Rugas dinâmicas / estáticas</li><li>Flacidez na face / pescoço</li><li>Manchas de mão e face</li><li>Cicatrizes de acne</li><li>Dúvidas sobre skincare</li><li>Melasma</li></ul>
+          <a href="#consulta" class="srv-cta">Agende sua consulta ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCEDIMENTOS (fundo escuro) -->
+<section class="section-proc">
+  <div class="servicos-in">
+    <div class="proc-grid">
+      <div class="proc-card"><div class="proc-card-img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt=""/></div><div class="proc-card-body"><div class="proc-card-title">Dermatologia Clínica</div><p class="proc-card-desc">Acne, rosácea, melasma, dermatites, psoríase e outras condições da pele.</p><a href="#consulta" class="proc-cta">Agendar consulta <svg class="aico" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+      <div class="proc-card"><div class="proc-card-img"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=80" alt=""/></div><div class="proc-card-body"><div class="proc-card-title">Dermatologia Cirúrgica</div><p class="proc-card-desc">Remoção de pintas, verrugas, cistos, biópsias e pequenas cirurgias.</p><a href="#consulta" class="proc-cta">Agendar consulta <svg class="aico" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+      <div class="proc-card"><div class="proc-card-img"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt=""/></div><div class="proc-card-body"><div class="proc-card-title">Rugas e Flacidez</div><p class="proc-card-desc">Tratamentos para envelhecimento cutâneo com naturalidade e progressividade.</p><a href="#consulta" class="proc-cta">Agendar consulta <svg class="aico" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+      <div class="proc-card"><div class="proc-card-img"><img src="https://images.unsplash.com/photo-1573461160327-f8b37c51c4b3?w=600&q=80" alt=""/></div><div class="proc-card-body"><div class="proc-card-title">Manchas e Melasma</div><p class="proc-card-desc">Protocolo personalizado para controle e clareamento progressivo.</p><a href="#consulta" class="proc-cta">Agendar consulta <svg class="aico" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+      <div class="proc-card"><div class="proc-card-img"><img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&q=80" alt=""/></div><div class="proc-card-body"><div class="proc-card-title">Cicatriz de Acne e Estrias</div><p class="proc-card-desc">Tratamentos para melhorar a textura e qualidade da pele de forma progressiva.</p><a href="#consulta" class="proc-cta">Agendar consulta <svg class="aico" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+      <div class="proc-card"><div class="proc-card-img"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt=""/></div><div class="proc-card-body"><div class="proc-card-title">Preenchimento e Toxina Botulínica</div><p class="proc-card-desc">Procedimentos indicados após avaliação médica, com foco em resultados naturais.</p><a href="#consulta" class="proc-cta">Agendar consulta <svg class="aico" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JORNADA -->
+<section class="section-jornada" id="jornada">
+  <div class="jornada-in">
+    <div class="jornada-head">
+      <span class="label">Minha jornada</span>
+      <h2 class="h2">Formação e <em>experiência</em><br>ao longo dos anos</h2>
+      <p>Uma trajetória marcada por formação sólida, atualização constante e dedicação à dermatologia.</p>
+    </div>
+    <div class="jornada-body">
+      <div class="jornada-img"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=80" alt="Dra. Paula"/></div>
+      <div class="jornada-steps">
+        <div class="jornada-step"><div class="jornada-num filled"><span>01</span></div><div class="jornada-txt"><strong>Formação Médica e Especialização</strong><p>Graduação em Medicina e residência em Clínica Médica e Dermatologia pela UNESP, com especialização em Urticária e Farmacodermia pela UNIFESP.</p></div></div>
+        <div class="jornada-step"><div class="jornada-num outline"><span>02</span></div><div class="jornada-txt"><strong>Ampliação e Visão Integrativa</strong><p>MBA em Gestão pela USP e formação em Medicina Tradicional Chinesa. Busca contínua por uma visão mais ampla e preventiva da saúde da pele.</p></div></div>
+        <div class="jornada-step"><div class="jornada-num outline"><span>03</span></div><div class="jornada-txt"><strong>Prática Clínica e Reconhecimento</strong><p>Mais de 18 anos de atuação em dermatologia clínica, cirúrgica e estética, com milhares de pacientes atendidos e avaliações que refletem confiança e cuidado individualizado.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<section class="section-counters">
+  <div class="counters-in">
+    <div class="counter"><div class="counter-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="counter-content"><div class="counter-num">+18</div><div class="counter-lbl">anos de atuação em dermatologia</div></div></div>
+    <div class="counter"><div class="counter-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="counter-content"><div class="counter-num">+10k</div><div class="counter-lbl">pacientes atendidos</div></div></div>
+    <div class="counter"><div class="counter-ico"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="counter-content"><div class="counter-num">+400</div><div class="counter-lbl">avaliações verificadas</div></div></div>
+    <div class="counter"><div class="counter-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div class="counter-content"><div class="counter-num">5.0</div><div class="counter-lbl">Nota na Doctoralia</div></div></div>
+  </div>
+</section>
+
+<!-- COMPARAÇÃO -->
+<section class="section-comp">
+  <div class="comp-box">
+    <div class="comp-imgs">
+      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700&q=80" alt="Antes"/>
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=700&q=80" alt="Depois"/>
+    </div>
+    <div class="comp-line"></div>
+    <div class="comp-btn"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="1 4 7 10 13 4"></polyline><polyline points="23 20 17 14 11 20"></polyline><line x1="7" y1="10" x2="17" y2="14"/></svg></div>
+    <div class="comp-label-top">Vamos ver</div>
+    <div class="comp-label-bottom">as diferenças</div>
+  </div>
+</section>
+
+<!-- CONTEÚDO YT + IG -->
+<section class="section-conteudo" id="conteudo">
+  <div class="conteudo-in">
+    <div class="conteudo-head">
+      <span class="label">Conteúdo educativo</span>
+      <h2 class="h2">Aprenda com a <em>Dra. Paula</em></h2>
+      <p>Educação também é uma forma de cuidado. Acompanhe o conteúdo da Dra. Paula no YouTube e no Instagram.</p>
+    </div>
+    <div class="conteudo-grid">
+      <div class="yt-card">
+        <div class="yt-header">
+          <div class="yt-ico"><svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+          <div><div class="yt-channel-name">Pele com Alma</div><div class="yt-channel-sub">Canal no YouTube</div></div>
+        </div>
+        <div class="yt-videos">
+          <div class="yt-video-item"><div class="yt-thumb"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=200&q=80" alt=""/><div class="yt-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div><div class="yt-video-title">O que realmente causa o melasma?</div><div class="yt-video-meta">Placeholder - substituir pelo link real</div></div></div>
+          <div class="yt-video-item"><div class="yt-thumb"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&q=80" alt=""/><div class="yt-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div><div class="yt-video-title">Acne adulta: causas e tratamentos</div><div class="yt-video-meta">Placeholdersubstituir pelo link real</div></div></div>
+          <div class="yt-video-item"><div class="yt-thumb"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=200&q=80" alt=""/><div class="yt-play"><svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div><div><div class="yt-video-title">Botox: mitos e verdades</div><div class="yt-video-meta">Placeholdersubstituir pelo link real</div></div></div>
+        </div>
+        <div class="yt-footer"><a href="#" class="btn btn-rose" style="font-size:14px;padding:12px 22px">Ver todos os vídeos →</a></div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-header">
+          <div class="ig-profile"><div class="ig-avatar"><img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=100&q=80" alt=""/></div><div><div class="ig-name">Dra. Paula</div><div class="ig-handle">@pelecomalmaPlaceholder</div></div></div>
+          <button class="ig-follow-btn">Seguir</button>
+        </div>
+        <div class="ig-grid">
+          <div class="ig-post"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&q=80" alt=""/><div class="ig-post-ov"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+          <div class="ig-post"><img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=300&q=80" alt=""/><div class="ig-post-ov"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+          <div class="ig-post"><img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=300&q=80" alt=""/><div class="ig-post-ov"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+          <div class="ig-post"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&q=80" alt=""/><div class="ig-post-ov"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+          <div class="ig-post"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&q=80" alt=""/><div class="ig-post-ov"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+          <div class="ig-post"><img src="https://images.unsplash.com/photo-1573461160327-f8b37c51c4b3?w=300&q=80" alt=""/><div class="ig-post-ov"><svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+        </div>
+        <div class="ig-footer"><a href="#" class="btn btn-rose" style="font-size:13px;padding:10px 18px">Ver Instagram →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section-blog" id="blog">
+  <div class="blog-in">
+    <div class="blog-head">
+      <div><span class="label">Blog</span><h2 class="h2">Conteúdo que <em>educa</em> e inspira</h2><p>Artigos escritos pela Dra. Paula sobre saúde da pele, rotina de cuidados e dermatologia.</p></div>
+      <a href="#" class="btn btn-ghost">Ver todos os artigos →</a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card"><div class="blog-card-img big"><img src="https://images.unsplash.com/photo-1629909614739-f9b9c5d37ae8?w=700&q=80" alt=""/></div><div class="blog-card-body"><span class="blog-card-tag">Skincare</span><div class="blog-card-title">Como montar uma rotina de skincare do zero — guia completo</div><p class="blog-card-desc">Placeholder — substitua pelo artigo real da Dra. Paula sobre rotina de cuidados.</p><div class="blog-card-footer"><span class="blog-card-date">PlaceholderJan 2026</span><span class="blog-card-link">Ler artigo →</span></div></div></div>
+      <div class="blog-card"><div class="blog-card-img sm"><img src="https://images.unsplash.com/photo-1573461160327-f8b37c51c4b3?w=500&q=80" alt=""/></div><div class="blog-card-body"><span class="blog-card-tag">Melasma</span><div class="blog-card-title">Melasma tem cura? O que realmente funciona no tratamento</div><p class="blog-card-desc">Placeholder — substitua pelo artigo real.</p><div class="blog-card-footer"><span class="blog-card-date">PlaceholderDez 2025</span><span class="blog-card-link">Ler artigo →</span></div></div></div>
+      <div class="blog-card"><div class="blog-card-img sm"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80" alt=""/></div><div class="blog-card-body"><span class="blog-card-tag">Acne</span><div class="blog-card-title">Acne adulta: por que aparece e como tratar com segurança</div><p class="blog-card-desc">Placeholder — substitua pelo artigo real.</p><div class="blog-card-footer"><span class="blog-card-date">PlaceholderNov 2025</span><span class="blog-card-link">Ler artigo →</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section-depo" id="depo">
+  <div class="depo-in">
+    <div class="depo-head">
+      <div><span class="label">Depoimentos</span><h2 class="h2">Relatos de <em>pacientes</em> atendidos</h2><p>Mais de <strong>480 avaliações</strong> públicas verificadas na Doctoralia.</p></div>
+      <div class="depo-nav"><button class="depo-btn prev">←</button><button class="depo-btn next">→</button></div>
+    </div>
+    <div class="depo-cards">
+      <div class="depo-card"><span class="depo-qmark">"</span><p class="depo-txt">A Dra. Paula examinou e explicou tudo com bastante clareza. Tirou todas as minhas dúvidas. Ambiente muito acolhedor.</p><div class="depo-foot"><div><div class="depo-author-name">Lis</div><div class="depo-author-tag">Consulta verificadaDoctoralia</div></div><div class="depo-rating"><span class="star">★</span> 4.5/5</div></div></div>
+      <div class="depo-card"><span class="depo-qmark">"</span><p class="depo-txt">Primeira consulta e já gostei da praticidade em resolver os problemas. Médica muito atenciosa e ambiente agradável.</p><div class="depo-foot"><div><div class="depo-author-name">Bruna P.</div><div class="depo-author-tag">Consulta verificadaDoctoralia</div></div><div class="depo-rating"><span class="star">★</span> 5.0/5</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="section-faq" id="faqs">
+  <div class="faq-in">
+    <div class="faq-head"><span class="label">FAQs</span><h2 class="h2"><em>Dúvidas</em> comuns<br>antes da consulta</h2><p>As perguntas mais frequentes sobre consulta e tratamentos dermatológicos.</p></div>
+    <div class="faq-grid">
+      <div class="faq-item open"><div class="faq-q"><span class="faq-q-txt">É necessário consulta antes de um procedimento?</span><div class="faq-ico">↑</div></div><p class="faq-a">Sim. Todos os tratamentos são indicados após avaliação médica individualizada, garantindo segurança e adequação ao seu caso específico.</p></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-txt">Há tempo de recuperação após os procedimentos?</span><div class="faq-ico">↓</div></div><p class="faq-a">Depende do procedimento. Na consulta, a Dra. Paula orienta sobre cuidados pós-procedimento e o tempo estimado de recuperação.</p></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-txt">Como sei qual tratamento é adequado para minha pele?</span><div class="faq-ico">↓</div></div><p class="faq-a">Por meio de avaliação clínica completa. A Dra. Paula analisa as condições da sua pele e cria um plano de cuidado personalizado.</p></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-txt">A Dra. Paula realiza atendimento online?</span><div class="faq-ico">↓</div></div><p class="faq-a">Sim, consultas online estão disponíveis para orientações gerais e acompanhamento. Entre em contato para verificar a disponibilidade.</p></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-txt">Como funciona o agendamento da consulta?</span><div class="faq-ico">↓</div></div><p class="faq-a">Pelo WhatsApp ou pela plataforma Doctoralia. Atendimento de segunda a sexta, das 8h às 17h.</p></div>
+      <div class="faq-item"><div class="faq-q"><span class="faq-q-txt">Manchas e melasma têm cura definitiva?</span><div class="faq-ico">↓</div></div><p class="faq-a">O melasma e algumas manchas exigem controle contínuo. O tratamento adequado ajuda a melhorar o aspecto da pele e manter os resultados ao longo do tempo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="logo" style="margin-bottom:18px;height:46px"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 535.9 152.4"><defs><style>.st0{fill:#010101}.st1{fill:#fcfcfc}.st2{fill:#020202}.st3{fill:#c4c4c4}.st4{fill:#f1f1f1}.st5{fill:#efefef}.st6{fill:#fefefe}.st7{fill:#040404}.st8{fill:#f7f7f7}.st9{fill:#fdfdfd}</style></defs><path class="st0" d="M401.7,67.2l12.3-2.4,6.4-48c.4-1.6,2.6-.7,3.2.2,1.2,2-1.5,8.1-1.9,10.6-1.9,10.8-3.5,24.2-4.4,35.1s-.2,1.8,0,2,2.7-.5,1.7,1.5-2.2.6-2.4,1.3c.2,10.8-2.6,25.4,1.4,35.7,6.5,16.5,17.8-10.6,19.4-16.9,1.3-5.1.9-11.4,2.2-16.3s1.4-2.5,3.5-2.2c-.3,5-2.2,9.6-2.9,14.7-.5,3.8-.7,7.7-.7,11.6l4.1-14.1c10.7-22.2,10.2,7.1,12.7,15.3,1.2.2,1.4-.6,1.9-1.4,1.9-3,4.9-15.7,8.6-16,5.6-.5,3.6,16.6,8.4,17.4s7.4-5.5,8.3-7.9.6-3.4,1.3-5.3c1.8-4.4,7.1-7.5,11.9-6.4s1.7,3.1,1.6,5.5c-.1,3.9,0,9.4,2.3,12.7,4.5,6.7,13.7-7.1,17.2-9.4s1.5-.2,1.5.3-7.1,7.2-8.1,8.1c-11.6,9.4-12.9,1-15.6-9.5-3,5.5-8.5,24.5-12.3,7.8-3.3,2.1-4.8,6.4-9.3,6-6.7-.6-5.6-16.2-7.8-16.2-3.8,2.3-5.2,14-8.1,15.8-5.6,3.4-6.6-8.9-7.1-12s0-7.8-2.2-10.4c-1.9,0-5.4,10.7-5.9,12.7s-1.5,10.6-2.2,11.6-2.5.8-3,.2,0-4.4,0-5.6.4-2.2-.6-2.1c-2.3,6.2-9.5,24.3-18.6,17.6-3-2.2-4.1-6.8-4.7-10.3-1.6-9.7-.7-20.6.4-30.3-.4-.6-.5-.7-1.2-.7-1.4,0-10,1.3-10.8,1.8s-.6,1.1-.6,1.8c.4,19.5-.4,39.1,0,58.6,0,1.3,1.9,9.9-.9,9.2s-.9-9.5-.9-11.6c.1-5.8,0-11.7,0-17.3,0-13.3,0-26.5,0-39.8-.7-.6-10.3,2.2-12,2.7s-9.2,2.7-9.5,3.7c-.2,5.4-1.4,10.7-1.9,16.1s-1,12.6.1,18.4,1.8,4,2.2,6.4c-1.4.1-2.9-.1-3.9-1.2-5-5.6-.4-30.9-.3-38.8-4.3-.5-9.6,5.2-13.2,4.5-3.4-.7,1.4-2.8,2.6-3.4,3.6-1.7,7.5-2.5,11.2-3.9,2.9-14.6,5.4-29.5,10-43.7s4.7-14.7,7.8-15.6c4.9-1.4,6,4.8,6.6,8.1,1,5.4,1.2,12.7,1.4,18.3.3,8.5-.6,17,.6,25.4Z"/><path class="st0" d="M51.9,91.1c-.4,4,.8,30.4-.7,31.6s-2.2,0-2.9,0c1.1-8.2.3-16.5.6-24.8s1.1-4.3.6-6.6-5.8-1.6-5.4-7.8,4.3-5.7,5.7-8.7,1.2-18,1.5-23,1.1-10.6,1.5-15.8c2.1-2.2,3.8-1.8,4,1.5s-1.9,12-2.4,16.7c-.7,6-1.2,12.2-1.2,18.2.4.5,4.1-2.1,5-2.5,2.5-1.1,17-6.1,18.4-4.7s.2,1.5-.4,1.8c-1.4,1.1-3.5,0-5.2,0-2.4.2-17.4,6.2-18.3,7.8l-.7,14.2c16.8.7,31.9-14.8,39.7-28.3C117,17,69.9,4.5,37.6,24c-4.9,2.9-21.9,16.3-17.8,23s6.2,3,2.3,4.1-5.9-4.3-5.5-7.3c1.5-10.1,20-22.1,28.9-25.7,23.5-9.4,62.7-6.8,55.9,27.6s-27.5,45.7-49.5,45.4Z"/><path class="st2" d="M281.7,98.3c1.5-7.5,2.3-15.4,4.5-22.7.9-2.9,2.6-10,6.5-8.9s3.2,19.9,3.4,24.1c1.2,7,2.3,4.8,4.3.1s2-7.4,4-10.4,2.8-4,4.6-1.3,2.9,19.3,9.6,15.4,2.3-4.5,4.6-5c-8,17.4-15.2,2.1-17.1-8.7-2.6,2.9-5,15.7-8.5,16.6s-3.2-1.4-3.6-3.3c-1.5-6.2-.8-14.8-1.4-21.4s-.8-6.2-3.1-1.9c-4.1,7.6-4.1,21.4-6.6,29.8-.5,1.9-2.9,2.1-4.1.8s-.7-11-.6-13.2c.5-8.1,4.2-19,4.2-26.3s-3.4-3-6-1.1c-3.8,2.7-7.7,6.5-11.5,9.5s-9.5,6.3-9.9,6.9c-.6,1,1.3,7.2,1.3,9.4.2,16.6-13.3,14.8-12.7-.4-4.8,6.2-18.1,19.6-25.8,10.8-5.3-6-4.1-17.9,2.4-22.7,1.8-1.3,7.5-3,8.6-1.1s-.3,3.2-2.3,2-.3-2.9-4-.4c-5.4,3.5-5.6,23.1,2.5,23.5,5,.2,14.3-8.2,17.4-12s3.7-7.8,5.5-8.9,3.8,0,5.5-.5,11.3-8.1,13.9-10.1,17.7-17,18-5.9-3.3,18.7-4.1,26.9-.8,6.8-.7,8.4.2,1.9,1.2,2.1Z"/><path class="st0" d="M139.5,52.3c.2-3.4,0-4.2-.6-2.4-3,10.7-11.3,42.8-22,47.2-11.3,4.6-16.4-15-8.1-22.4,5.1-4.5,8,.9,4.5,5.7s-4.8,2.8-5.1,4.5c-.8,4.2,2.4,12.3,7.6,10.6s14.3-23.3,16.5-30.2c4.8-14.7,8.8-30.6,10.6-45.9,3-.4,2.5,2.2,2.4,4.5-1.1,17.3-4.3,34.8-4.8,52.6-.3,9.8-.9,27.3,1.3,36.4s3.2,5.8,2,7.6c-2.2,1.8-3.6-1.3-4.1-3.1-2.8-9.9-2-34.5-1.6-45.6s1.4-12.9,1.2-19.4Z"/><path class="st7" d="M162.7,81.4c-3,3.1-6.6.3-7.4,6-2.4,15.7,11.6,10.1,19,4,1.5-1.2,6.4-7.2,6.9-7.5s1.2.2.9.9-3.9,5.2-4.8,6c-4.7,4.4-17.4,11.3-23.1,6.3-5.4-4.7,0-21.3,6.8-22.6s4.2,4.3,1.8,6.8Z"/><path class="st3" d="M139.5,52.3c0-.8.3-2-.6-2.4.2-.8.2-2.9,1.2-3l-.6,5.4Z"/><path class="st6" d="M378.9,73.8c2.1-11.2,3.9-22.5,6.9-33.5,1.1-4.1,5.3-18.4,7.8-20.9s2.9-.1,3.6,2.4c2.1,7.2,2.5,21.7,2.7,29.6s.5,14.3-.1,16.1-.4.8-.9.9l-20,5.5Z"/><path class="st1" d="M486.3,95.9c-.6-.4-.7-4.6-.6-5.7.2-3.3,2.9-12,6.4-12.7s2.9,1.4,2.3,4.1-4.5,12.7-6,13.8-1.6.9-2.1.6Z"/><path class="st8" d="M49.5,88.1c-6.2-1.3-3.7-8.5.6-10.8l-.6,10.8Z"/><path class="st9" d="M250.9,78.7c4.7-1.2,4.6,12.7,2.3,16-6.8,9.8-7.9-14.6-2.3-16Z"/><path class="st5" d="M113.7,75c1.4,2.1-3.3,8-4.8,6.6s2.2-7.7,4.8-6.6Z"/><path class="st4" d="M157.5,82.2c0-2.3,2.1-4.9,4.3-5.5s.8,3.3-.4,4.4-2.4,1.3-3.9,1.2Z"/></svg></div>
+      <p class="footer-brand-desc">Atendimento realizado pela Dra. Paula, com foco em saúde, confiança e cuidado individualizado.</p>
+      <div class="footer-socials"><div class="footer-soc"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div><div class="footer-soc"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8a3 3 0 100 6 3 3 0 000-6z"/><circle cx="18" cy="6" r="1"/></svg></div><div class="footer-soc"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.615 3.595c-3.45 0-6.261 2.831-6.261 6.33 0 .497.054.983.16 1.449l-7.501 3.84c-.919-.197-1.773-.591-2.516-1.149-1.594-1.216-2.723-3.012-2.723-5.055 0-3.499 2.811-6.33 6.261-6.33 2.934 0 5.45 1.978 6.064 4.649l7.501-3.84c-.106-.467-.16-.953-.16-1.449 0-3.499 2.811-6.33 6.261-6.33s6.261 2.831 6.261 6.33-2.811 6.33-6.261 6.33c-.497 0-.983-.054-1.449-.16l-3.84 7.501c.197.919.591 1.773 1.149 2.516 1.216 1.594 3.012 2.723 5.055 2.723 3.499 0 6.33-2.811 6.33-6.261s-2.831-6.261-6.33-6.261z"/></svg></div></div>
+    </div>
+    <div>
+      <div class="footer-col-title">Links Rápidos</div>
+      <ul class="footer-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#paula">Dra. Paula</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#conteudo">Conteúdo</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contato</div>
+      <div class="footer-contact">
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="display:inline;margin-right:8px"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 12c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg> R Sampaio Viana, 75, São PauloSP 04004-000</div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="display:inline;margin-right:8px"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"/></svg> 8h às 17h | Segunda à Sexta</div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="display:inline;margin-right:8px"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg> (11) 9761-8523</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>2025 | Pele Com Alma Ltda MECNPJ 44.943.417/0001-63</p>
+    <p>Desenvolvido por: 2P Growth Lab</p>
+  </div>
+</footer>
+</body>
+</html>
