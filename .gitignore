@@ -12,3 +12,7 @@ build/
 .env
 .env.*
 
+# Backups de migracao podem conter banco de dados e credenciais.
+# O backup completo fica no pacote externo pre-Windows, nao no GitHub.
+/Migração de Site/*.sql
+/Migração de Site/*.zip
