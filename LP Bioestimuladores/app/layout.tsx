@@ -3,9 +3,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Bioestimulador de colágeno no rosto | Dra. Paula Sian",
-  description: "Entenda se o bioestimulador de colágeno é indicado para a sua pele. Avaliação dermatológica individualizada com a Dra. Paula Sian.",
-  icons: { icon: "/favicon.svg" },
-  openGraph: { title: "Bioestimulador de colágeno no rosto | Dra. Paula Sian", description: "Uma avaliação honesta antes de indicar qualquer procedimento.", type: "website" },
+  description: "Eu avalio a sua pele e explico se o bioestimulador de colágeno faz sentido para você. Dra. Paula Sian, dermatologista em São Paulo.",
+  icons: { icon: "/favicon.png" },
+  openGraph: { title: "Bioestimulador de colágeno no rosto | Dra. Paula Sian", description: "Eu avalio a sua pele antes de indicar qualquer procedimento.", type: "website" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

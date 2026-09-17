@@ -27,14 +27,17 @@ html = html
   .replace(/<link[^>]+rel="stylesheet"[^>]*>/i, '<link rel="stylesheet" href="./styles.css">')
   .replace(/\/_next\/image\?url=([^&"\s]+)[^"\s]*/g, (_, encodedPath) => decodeURIComponent(encodedPath).replace(/^\//, ""))
   .replaceAll('="/logo.svg', '="./logo.svg')
-  .replaceAll('="/favicon.svg', '="./favicon.svg')
-  .replaceAll('="/images/', '="./images/');
+  .replaceAll('="/favicon.png', '="./favicon.png')
+  .replaceAll('="/images/', '="./images/')
+  .replaceAll('="/videos/', '="./videos/');
 
 await mkdir(outputDir, { recursive: true });
 await mkdir(path.join(outputDir, "images"), { recursive: true });
+await mkdir(path.join(outputDir, "videos"), { recursive: true });
 await cp(path.join(root, "public", "images"), path.join(outputDir, "images"), { recursive: true });
+await cp(path.join(root, "public", "videos"), path.join(outputDir, "videos"), { recursive: true });
 await cp(path.join(root, "public", "logo.svg"), path.join(outputDir, "logo.svg"));
-await cp(path.join(root, "public", "favicon.svg"), path.join(outputDir, "favicon.svg"));
+await cp(path.join(root, "public", "favicon.png"), path.join(outputDir, "favicon.png"));
 await cp(path.join(cssDir, cssFile), path.join(outputDir, "styles.css"));
 await writeFile(path.join(outputDir, ".nojekyll"), "");
 await writeFile(path.join(outputDir, "index.html"), `<!doctype html>${html.slice(html.indexOf("<html"))}`);
