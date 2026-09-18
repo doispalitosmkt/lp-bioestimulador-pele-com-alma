@@ -1,4 +1,5 @@
 import { cp, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 const root = process.cwd();
@@ -18,13 +19,17 @@ if (!cssFile) {
   throw new Error("No compiled CSS file found in dist/client/_next/static/css");
 }
 
+const css = await readFile(path.join(cssDir, cssFile));
+const cssHash = createHash("sha256").update(css).digest("hex").slice(0, 12);
+const versionedCssFile = `styles.${cssHash}.css`;
+
 // GitHub Pages does not run the Vinext server, so keep the server-rendered HTML,
 // remove hydration/runtime scripts, and point optimized images at public assets.
 html = html
   .replace(/<script[\s\S]*?<\/script>/gi, "")
   .replace(/<link[^>]+rel="modulepreload"[^>]*>/gi, "")
   .replace(/<link[^>]+rel="preload"[^>]*>/gi, "")
-  .replace(/<link[^>]+rel="stylesheet"[^>]*>/i, '<link rel="stylesheet" href="./styles.css">')
+  .replace(/<link[^>]+rel="stylesheet"[^>]*>/i, `<link rel="stylesheet" href="./${versionedCssFile}">`)
   .replace(/\/_next\/image\?url=([^&"\s]+)[^"\s]*/g, (_, encodedPath) => decodeURIComponent(encodedPath).replace(/^\//, ""))
   .replaceAll('="/logo.svg', '="./logo.svg')
   .replaceAll('="/favicon.png', '="./favicon.png')
@@ -38,7 +43,8 @@ await cp(path.join(root, "public", "images"), path.join(outputDir, "images"), { 
 await cp(path.join(root, "public", "videos"), path.join(outputDir, "videos"), { recursive: true });
 await cp(path.join(root, "public", "logo.svg"), path.join(outputDir, "logo.svg"));
 await cp(path.join(root, "public", "favicon.png"), path.join(outputDir, "favicon.png"));
-await cp(path.join(cssDir, cssFile), path.join(outputDir, "styles.css"));
+await writeFile(path.join(outputDir, "styles.css"), css);
+await writeFile(path.join(outputDir, versionedCssFile), css);
 await writeFile(path.join(outputDir, ".nojekyll"), "");
 await writeFile(path.join(outputDir, "index.html"), `<!doctype html>${html.slice(html.indexOf("<html"))}`);
 

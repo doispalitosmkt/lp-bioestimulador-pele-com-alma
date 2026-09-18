@@ -67,7 +67,7 @@ export default function Home() {
             <p className="hero-lede">Antes de indicar qualquer procedimento, eu escuto sua história e avalio o que a sua pele precisa.</p>
             <p className="hero-support">O bioestimulador pode ser um caminho. A resposta começa na consulta, não em uma fórmula pronta.</p>
             <WhatsAppButton />
-            <div className="authority-line"><span className="authority-mark">✦</span><span><strong>Dra. Paula Sian</strong><br />Dermatologista · CRM-SP 111963 · RQE 38348</span></div>
+            <div className="authority-line"><span className="authority-mark" aria-hidden="true">PS</span><span><strong>Dra. Paula Sian Lopes</strong><br />Dermatologista <span className="authority-divider">·</span> CRM-SP 111963 <span className="authority-divider">·</span> RQE 38348</span></div>
           </div>
           <div className="hero-portrait">
             <PaulaVideo number={1} topic="introdução ao cuidado com bioestimuladores" className="hero-video-card" />
@@ -84,11 +84,11 @@ export default function Home() {
       </section>
 
       <section className="education-section">
-        <div className="container"><div className="education-intro"><div className="section-heading"><p className="eyebrow">Informação para decidir com calma</p><h2>O que é o bioestimulador de colágeno?</h2><p className="section-intro">Eu explico o bioestimulador como um tratamento injetável que estimula a produção de colágeno. Seu efeito é gradual. Ele não é a mesma coisa que um preenchimento.</p></div><figure className="education-photo"><Image src="/images/avaliacao-pele-pexels.jpg" alt="Profissional de saúde avaliando delicadamente a pele do rosto de uma paciente" width={1125} height={750} /><figcaption>Imagem ilustrativa de avaliação da pele</figcaption></figure></div>
+        <div className="container"><div className="education-intro"><div className="section-heading"><p className="eyebrow">Informação para decidir com calma</p><h2>O que é o bioestimulador de colágeno?</h2><p className="section-intro">Eu explico o bioestimulador como um tratamento injetável que estimula a produção de colágeno. Seu efeito é gradual. Ele não é a mesma coisa que um preenchimento.</p></div><figure className="education-photo"><Image src="/images/avaliacao-pele-pexels.jpg" alt="Profissional de saúde examinando a pele do rosto de uma mulher" width={1125} height={750} /></figure></div>
           <div className="education-cards">
             <article className="education-card"><span className="card-kicker">Quando considero</span><h3>Firmeza e qualidade da pele</h3><p>Eu avalio flacidez e perda de sustentação, inclusive quando o rosto muda após emagrecimento com medicações.</p></article>
             <article className="education-card featured-card"><span className="card-kicker">O que acontece</span><h3>Estímulo gradual</h3><p>Eu explico que o organismo produz colágeno ao longo do tempo. A evolução e a resposta variam de pessoa para pessoa.</p></article>
-            <article className="education-card"><span className="card-kicker">Como escolho</span><h3>Um plano individual</h3><p>Existem diferentes produtos e técnicas. Só escolho depois de avaliar a pele, a anatomia e os seus objetivos.</p></article>
+            <article className="education-card"><span className="card-kicker">Como escolho</span><h3>Produto e sessões para você</h3><p>Eu avalio a área, a anatomia e os seus objetivos para definir o produto e o número de sessões. Não existe um protocolo único.</p></article>
           </div>
         </div>
       </section>
@@ -97,24 +97,19 @@ export default function Home() {
         <div className="container">
           <div className="section-heading procedure-heading">
             <p className="eyebrow">O que acontece na prática</p>
-            <h2>Da conversa à aplicação, tudo tem um porquê.</h2>
-            <p className="section-intro">Eu explico cada etapa antes de decidir com você. A aplicação só acontece quando há indicação para a sua pele.</p>
+            <h2>O tratamento não começa na aplicação.</h2>
+            <p className="section-intro">Primeiro eu entendo a sua queixa e examino a pele. Se o bioestimulador for indicado, explico o produto, a técnica e os cuidados antes de começarmos.</p>
           </div>
           <div className="procedure-grid">
-            <article className="procedure-image-card procedure-application">
-              <Image src="/images/consulta-espelho-pexels.jpg" alt="Paciente observa o rosto em um espelho durante uma consulta ilustrativa" width={500} height={750} />
-              <div className="procedure-image-caption"><span>01</span><strong>Escuta e avaliação</strong><small>começo pela sua história e pela sua pele</small></div>
-            </article>
-            <article className="procedure-image-card procedure-evaluation">
-              <Image src="/images/aplicacao-suave-pexels.jpg" alt="Paciente sorri durante um atendimento estético ilustrativo" width={500} height={750} />
-              <div className="procedure-image-caption"><span>02</span><strong>Aplicação, quando indicada</strong></div>
-            </article>
-            <article className="procedure-image-card procedure-consultation">
-              <Image src="/images/consultorio.webp" alt="Ambiente de consulta dermatológica" width={400} height={267} />
-              <div className="procedure-image-caption"><span>03</span><strong>Acompanhamento próximo</strong></div>
-            </article>
+            <figure className="procedure-image-card">
+              <Image src="/images/consulta-espelho-pexels.jpg" alt="Mulher observando o rosto em um espelho durante uma avaliação de pele" width={500} height={750} />
+              <figcaption><span>Primeiro passo</span><strong>Escuta e avaliação</strong><small>Eu começo pelo que você percebe na sua pele.</small></figcaption>
+            </figure>
+            <figure className="procedure-image-card">
+              <Image src="/images/aplicacao-suave-pexels.jpg" alt="Mulher durante um atendimento estético facial" width={500} height={750} />
+              <figcaption><span>Quando indicado</span><strong>Aplicação planejada</strong><small>Eu explico o que será feito e acompanho a evolução.</small></figcaption>
+            </figure>
           </div>
-          <div className="procedure-note"><span>✦</span> Imagens ilustrativas. Eu defino produto, técnica, área e número de sessões apenas após a avaliação médica.</div>
         </div>
       </section>
 
@@ -150,9 +145,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="method-section"><div className="container"><div className="method-heading"><p className="eyebrow">Como funciona comigo</p><h2>Da primeira conversa ao acompanhamento.</h2><p className="section-intro">Eu examino sua pele antes de indicar qualquer tratamento. Assim, você entende o motivo de cada decisão.</p></div><div className="method-grid"><div className="method-image-wrap"><Image src="/images/consulta.webp" alt="Atendimento e conversa durante uma consulta" width={4096} height={2732} className="method-image" /><div className="image-caption"><span>✦</span> começo pela escuta</div></div><div className="method-copy"><div className="steps"><div className="step"><span>01</span><div><h3>Eu escuto e examino</h3><p>Conversamos sobre suas queixas, seu momento e o que você deseja mudar.</p></div></div><div className="step"><span>02</span><div><h3>Eu explico o plano</h3><p>Apresento as possibilidades e digo com clareza quando o bioestimulador não é a melhor escolha.</p></div></div><div className="step"><span>03</span><div><h3>Eu acompanho a evolução</h3><p>Se decidirmos pelo tratamento, sigo com você nas etapas e reavaliações.</p></div></div></div><WhatsAppButton /></div></div></div></section>
+      <section className="method-section"><div className="container"><div className="method-heading"><p className="eyebrow">Como funciona comigo</p><h2>Da primeira conversa ao acompanhamento.</h2><p className="section-intro">Eu examino sua pele antes de indicar qualquer tratamento. Assim, você entende o motivo de cada decisão.</p></div><div className="method-grid"><div className="method-image-wrap"><Image src="/images/paula-jornada.webp" alt="Dra. Paula Sian em conversa com outra mulher" width={700} height={467} className="method-image" /></div><div className="method-copy"><div className="steps"><div className="step"><span>01</span><div><h3>Eu escuto e examino</h3><p>Conversamos sobre suas queixas, seu momento e o que você deseja mudar.</p></div></div><div className="step"><span>02</span><div><h3>Eu explico o plano</h3><p>Apresento as possibilidades e digo com clareza quando o bioestimulador não é a melhor escolha.</p></div></div><div className="step"><span>03</span><div><h3>Eu acompanho a evolução</h3><p>Se decidirmos pelo tratamento, sigo com você nas etapas e reavaliações.</p></div></div></div><WhatsAppButton /></div></div></div></section>
 
-      <section className="paula-section" id="dra-paula"><div className="container"><div className="paula-grid"><div className="paula-copy"><p className="eyebrow">Quem cuida de você</p><h2>Sou a Dra. Paula. Cuido da sua pele por inteiro.</h2><p className="section-intro">Sou médica formada pela UNESP, com residência em Clínica Médica e Dermatologia e especialização pela UNIFESP. Na minha prática, começo pela pessoa, não pelo procedimento.</p><div className="credentials"><div><strong>+18</strong><span>anos de dermatologia</span></div><div><strong>+10 mil</strong><span>pacientes atendidos</span></div><div><strong>5,0</strong><span>nota na Doctoralia</span></div></div><p className="doctor-registration">Dra. Paula Sian Lopes · CRM-SP 111963 · RQE 38348</p></div><div className="paula-image-wrap"><Image src="/images/paula-retrato.webp" alt="Dra. Paula Sian em seu consultório" width={700} height={1050} className="paula-image" /><div className="paula-stamp">verdade<br /><em>antes da vitrine</em></div></div></div><div className="services-block"><div className="services-intro"><p className="eyebrow">Além dos bioestimuladores</p><h3>Também posso cuidar de outras questões da sua pele.</h3><p>Arraste para conhecer algumas áreas em que atuo.</p></div><div className="services-rail" role="region" tabIndex={0} aria-label="Outros cuidados dermatológicos"><article><small>Dermatologia clínica</small><h4>Acne e cicatrizes</h4><p>Eu avalio a origem e monto um cuidado adequado à sua pele.</p></article><article><small>Pigmentação</small><h4>Manchas e melasma</h4><p>Eu considero sua rotina e a resposta da pele ao planejar o cuidado.</p></article><article><small>Saúde capilar</small><h4>Queda de cabelo</h4><p>Eu investigo possíveis causas antes de propor um tratamento.</p></article><article><small>Dermatologia cirúrgica</small><h4>Lesões de pele</h4><p>Eu examino e explico quando um procedimento pode ser necessário.</p></article><article><small>Prevenção</small><h4>Saúde da pele</h4><p>Eu acompanho sua pele também fora dos procedimentos estéticos.</p></article></div></div></div></section>
+      <section className="paula-section" id="dra-paula">
+        <div className="container">
+          <div className="paula-grid">
+            <div className="paula-copy">
+              <p className="eyebrow">Quem cuida de você</p>
+              <h2>Sou a Dra. Paula. Cuido da sua pele por inteiro.</h2>
+              <p className="section-intro">Sou médica formada pela UNESP, com residência em Clínica Médica e Dermatologia e especialização pela UNIFESP. Na minha prática, começo pela pessoa, não pelo procedimento.</p>
+              <div className="credentials"><div><strong>+18</strong><span>anos de dermatologia</span></div><div><strong>+10 mil</strong><span>pacientes atendidos</span></div><div><strong>5,0</strong><span>nota na Doctoralia</span></div></div>
+              <p className="doctor-registration">Dra. Paula Sian Lopes · CRM-SP 111963 · RQE 38348</p>
+            </div>
+            <div className="paula-image-wrap"><Image src="/images/paula-retrato.webp" alt="Dra. Paula Sian em seu consultório" width={700} height={1050} className="paula-image" /></div>
+          </div>
+
+          <div className="services-block">
+            <div className="services-intro">
+              <p className="eyebrow">Além dos bioestimuladores</p>
+              <h3>Também cuido de outras questões da sua pele.</h3>
+              <p>Conheça algumas áreas em que posso ajudar você, sempre a partir de uma avaliação individual.</p>
+            </div>
+            <div className="services-grid">
+              <article className="service-card"><Image src="/images/service-acne.webp" alt="Rosto de uma mulher em close" width={800} height={600} /><div className="service-copy"><span>Dermatologia clínica</span><h4>Acne e cicatrizes</h4><p>Eu avalio a origem e monto um cuidado adequado à sua pele.</p></div></article>
+              <article className="service-card"><Image src="/images/service-pigmentacao.webp" alt="Rosto de uma mulher com sardas" width={800} height={600} /><div className="service-copy"><span>Pigmentação</span><h4>Manchas e melasma</h4><p>Eu considero sua rotina e a resposta da pele ao planejar o cuidado.</p></div></article>
+              <article className="service-card"><Image src="/images/service-cabelo.webp" alt="Aplicação de sérum no couro cabeludo" width={800} height={600} /><div className="service-copy"><span>Saúde capilar</span><h4>Queda de cabelo</h4><p>Eu investigo possíveis causas antes de propor um tratamento.</p></div></article>
+              <article className="service-card"><Image src="/images/avaliacao-pele-pexels.jpg" alt="Profissional examinando a pele de uma mulher" width={1125} height={750} /><div className="service-copy"><span>Dermatologia cirúrgica</span><h4>Lesões de pele</h4><p>Eu examino e explico quando um procedimento pode ser necessário.</p></div></article>
+              <article className="service-card"><Image src="/images/consulta-espelho-pexels.jpg" alt="Mulher observando a pele no espelho" width={500} height={750} /><div className="service-copy"><span>Prevenção</span><h4>Saúde da pele</h4><p>Eu acompanho sua pele também fora dos procedimentos estéticos.</p></div></article>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="faq-section" id="duvidas">
         <div className="container faq-grid">
