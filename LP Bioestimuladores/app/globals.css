@@ -133,7 +133,7 @@ h3 { color: var(--plum); font-size: 18px; line-height: 1.2; }
 .credentials span { color: var(--muted); font-size: 14px; line-height: 1.3; }
 .doctor-registration { margin-bottom: 0; color: var(--plum-soft); font-size: 14px; }
 .paula-image-wrap { max-width: 390px; justify-self: end; position: relative; }
-.paula-image { width: 100%; height: 445px; border-radius: 12px; object-fit: cover; object-position: center top; filter: saturate(.9); }
+.paula-image { width: 100%; height: 445px; border-radius: 12px; object-fit: cover; object-position: center top; }
 .services-block { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--line); }
 .services-intro { display: grid; grid-template-columns: 1.1fr .7fr; column-gap: 48px; align-items: end; margin-bottom: 26px; }
 .services-intro .eyebrow { grid-column: 1 / -1; margin-bottom: 9px; }

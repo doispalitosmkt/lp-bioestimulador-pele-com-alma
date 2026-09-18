@@ -145,7 +145,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="method-section"><div className="container"><div className="method-heading"><p className="eyebrow">Como funciona comigo</p><h2>Da primeira conversa ao acompanhamento.</h2><p className="section-intro">Eu examino sua pele antes de indicar qualquer tratamento. Assim, você entende o motivo de cada decisão.</p></div><div className="method-grid"><div className="method-image-wrap"><Image src="/images/paula-jornada.webp" alt="Dra. Paula Sian em conversa com outra mulher" width={700} height={467} className="method-image" /></div><div className="method-copy"><div className="steps"><div className="step"><span>01</span><div><h3>Eu escuto e examino</h3><p>Conversamos sobre suas queixas, seu momento e o que você deseja mudar.</p></div></div><div className="step"><span>02</span><div><h3>Eu explico o plano</h3><p>Apresento as possibilidades e digo com clareza quando o bioestimulador não é a melhor escolha.</p></div></div><div className="step"><span>03</span><div><h3>Eu acompanho a evolução</h3><p>Se decidirmos pelo tratamento, sigo com você nas etapas e reavaliações.</p></div></div></div><WhatsAppButton /></div></div></div></section>
+      <section className="method-section"><div className="container"><div className="method-heading"><p className="eyebrow">Como funciona comigo</p><h2>Da primeira conversa ao acompanhamento.</h2><p className="section-intro">Eu examino sua pele antes de indicar qualquer tratamento. Assim, você entende o motivo de cada decisão.</p></div><div className="method-grid"><div className="method-image-wrap"><Image src="/images/paula-consultorio-oficial.jpg" alt="Dra. Paula Sian em seu consultório" width={749} height={560} className="method-image" /></div><div className="method-copy"><div className="steps"><div className="step"><span>01</span><div><h3>Eu escuto e examino</h3><p>Conversamos sobre suas queixas, seu momento e o que você deseja mudar.</p></div></div><div className="step"><span>02</span><div><h3>Eu explico o plano</h3><p>Apresento as possibilidades e digo com clareza quando o bioestimulador não é a melhor escolha.</p></div></div><div className="step"><span>03</span><div><h3>Eu acompanho a evolução</h3><p>Se decidirmos pelo tratamento, sigo com você nas etapas e reavaliações.</p></div></div></div><WhatsAppButton /></div></div></div></section>
 
       <section className="paula-section" id="dra-paula">
         <div className="container">
@@ -157,7 +157,7 @@ export default function Home() {
               <div className="credentials"><div><strong>+18</strong><span>anos de dermatologia</span></div><div><strong>+10 mil</strong><span>pacientes atendidos</span></div><div><strong>5,0</strong><span>nota na Doctoralia</span></div></div>
               <p className="doctor-registration">Dra. Paula Sian Lopes · CRM-SP 111963 · RQE 38348</p>
             </div>
-            <div className="paula-image-wrap"><Image src="/images/paula-retrato.webp" alt="Dra. Paula Sian em seu consultório" width={700} height={1050} className="paula-image" /></div>
+            <div className="paula-image-wrap"><Image src="/images/paula-retrato-oficial.jpg" alt="Retrato da Dra. Paula Sian Lopes" width={1365} height={2048} className="paula-image" /></div>
           </div>
 
           <div className="services-block">
