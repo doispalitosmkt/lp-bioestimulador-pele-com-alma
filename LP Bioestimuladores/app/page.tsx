@@ -177,6 +177,34 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="reviews-section" aria-labelledby="reviews-title">
+        <div className="container">
+          <div className="reviews-heading">
+            <div>
+              <p className="eyebrow">Experiências na consulta</p>
+              <h2 id="reviews-title">O que pacientes contam sobre meu atendimento.</h2>
+            </div>
+            <p>Compartilho aqui trechos de avaliações públicas. Cada pessoa tem uma história e um cuidado próprios.</p>
+          </div>
+          <div className="reviews-grid">
+            <figure className="review-card">
+              <span className="review-mark" aria-hidden="true">“</span>
+              <blockquote>ouviu com cuidado as minhas queixas. […] me explicou em detalhes</blockquote>
+              <figcaption><strong>William</strong><span>Consulta verificada · 9 set. 2026</span></figcaption>
+            </figure>
+            <figure className="review-card">
+              <span className="review-mark" aria-hidden="true">“</span>
+              <blockquote>avaliação e explicação detalhada […] propostas de tratamento coerentes</blockquote>
+              <figcaption><strong>Nilce</strong><span>Consulta verificada · 3 set. 2026</span></figcaption>
+            </figure>
+          </div>
+          <div className="reviews-source">
+            <span>Trechos de opiniões publicadas na Doctoralia.</span>
+            <a href="https://www.doctoralia.com.br/paula-sian-lopes/dermatologista/sao-paulo" target="_blank" rel="noopener noreferrer">Ler avaliações completas na Doctoralia <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
       <section className="faq-section" id="duvidas">
         <div className="container faq-grid">
           <div className="faq-heading">
