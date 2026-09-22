@@ -1,0 +1,129 @@
+name: Deploy bioestimulador LP
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "LP Bioestimuladores/**"
+      - ".github/scripts/deploy-bioestimulador.sh"
+      - ".github/workflows/deploy-bioestimulador.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bioestimulador-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.repository == 'doispalitosmkt/lp-bioestimulador-pele-com-alma' && vars.HOSTINGER_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: production
+      url: https://pelecomalma.com.br/bioestimulador/
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.0
+          cache: npm
+          cache-dependency-path: LP Bioestimuladores/package-lock.json
+
+      - name: Install dependencies
+        working-directory: LP Bioestimuladores
+        run: npm ci
+
+      - name: Build landing page
+        working-directory: LP Bioestimuladores
+        run: npm run build
+
+      - name: Export static production files
+        working-directory: LP Bioestimuladores
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          npx vinext start --port 4189 > "$RUNNER_TEMP/vinext.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+
+          ready=0
+          for _ in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4189/ > /dev/null; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+
+          if [ "$ready" -ne 1 ]; then
+            cat "$RUNNER_TEMP/vinext.log"
+            exit 1
+          fi
+
+          PAGES_SOURCE_URL=http://127.0.0.1:4189/ PAGES_OUTPUT_DIR=docs node scripts/export-github-pages.mjs
+          test -s docs/index.html
+          test -s docs/favicon.png
+          test -d docs/images
+          test -d docs/videos
+          grep -q 'Bioestimulador de colágeno no rosto' docs/index.html
+
+          printf '{"commit":"%s","run_id":"%s"}\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" > docs/deployment.json
+
+      - name: Prepare secure SSH connection
+        shell: bash
+        env:
+          HOSTINGER_SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          HOSTINGER_KNOWN_HOSTS: ${{ secrets.HOSTINGER_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$HOSTINGER_SSH_PRIVATE_KEY"
+          test -n "$HOSTINGER_KNOWN_HOSTS"
+
+          install -m 600 /dev/null "$RUNNER_TEMP/hostinger_deploy_key"
+          printf '%s\n' "$HOSTINGER_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/hostinger_deploy_key"
+          install -m 600 /dev/null "$RUNNER_TEMP/hostinger_known_hosts"
+          printf '%s\n' "$HOSTINGER_KNOWN_HOSTS" > "$RUNNER_TEMP/hostinger_known_hosts"
+
+      - name: Deploy only the bioestimulador folder
+        shell: bash
+        env:
+          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
+          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
+          HOSTINGER_USER: ${{ secrets.HOSTINGER_USER }}
+          HOSTINGER_SSH_KEY_PATH: ${{ runner.temp }}/hostinger_deploy_key
+          HOSTINGER_KNOWN_HOSTS_PATH: ${{ runner.temp }}/hostinger_known_hosts
+          DEPLOY_SOURCE: ${{ github.workspace }}/LP Bioestimuladores/docs
+          DEPLOY_RELEASE: ${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+        run: bash .github/scripts/deploy-bioestimulador.sh
+
+      - name: Verify public landing page
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected_commit="$GITHUB_SHA"
+          deployed_commit=""
+
+          for _ in $(seq 1 12); do
+            deployed_commit=$(curl --fail --silent --show-error --location \
+              "https://pelecomalma.com.br/bioestimulador/deployment.json?run=$GITHUB_RUN_ID" \
+              | sed -n 's/.*"commit":"\([a-f0-9]*\)".*/\1/p') || true
+
+            if [ "$deployed_commit" = "$expected_commit" ]; then
+              break
+            fi
+            sleep 5
+          done
+
+          test "$deployed_commit" = "$expected_commit"
+          curl --fail --silent --show-error --location \
+            "https://pelecomalma.com.br/bioestimulador/?run=$GITHUB_RUN_ID" \
+            | grep -q 'Bioestimulador de colágeno no rosto'
