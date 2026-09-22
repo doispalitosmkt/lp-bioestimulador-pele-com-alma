@@ -28,10 +28,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22.13.0
           cache: npm
@@ -105,25 +105,40 @@ jobs:
           DEPLOY_RELEASE: ${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
         run: bash .github/scripts/deploy-bioestimulador.sh
 
-      - name: Verify public landing page
+      - name: Verify deployed release
         shell: bash
+        env:
+          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
+          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
+          HOSTINGER_USER: ${{ secrets.HOSTINGER_USER }}
+          HOSTINGER_SSH_KEY_PATH: ${{ runner.temp }}/hostinger_deploy_key
+          HOSTINGER_KNOWN_HOSTS_PATH: ${{ runner.temp }}/hostinger_known_hosts
         run: |
           set -euo pipefail
           expected_commit="$GITHUB_SHA"
-          deployed_commit=""
+          remote_root="domains/pelecomalma.com.br/public_html/bioestimulador"
+          ssh_options=(
+            -i "$HOSTINGER_SSH_KEY_PATH"
+            -p "$HOSTINGER_PORT"
+            -o BatchMode=yes
+            -o IdentitiesOnly=yes
+            -o StrictHostKeyChecking=yes
+            -o "UserKnownHostsFile=$HOSTINGER_KNOWN_HOSTS_PATH"
+          )
 
-          for _ in $(seq 1 12); do
-            deployed_commit=$(curl --fail --silent --show-error --location \
-              "https://pelecomalma.com.br/bioestimulador/deployment.json?run=$GITHUB_RUN_ID" \
-              | sed -n 's/.*"commit":"\([a-f0-9]*\)".*/\1/p') || true
-
-            if [ "$deployed_commit" = "$expected_commit" ]; then
-              break
-            fi
-            sleep 5
-          done
-
+          deployment_json=$(ssh "${ssh_options[@]}" \
+            "$HOSTINGER_USER@$HOSTINGER_HOST" \
+            "cat '$remote_root/deployment.json'")
+          deployed_commit=$(printf '%s' "$deployment_json" \
+            | sed -n 's/.*"commit":"\([a-f0-9]*\)".*/\1/p')
           test "$deployed_commit" = "$expected_commit"
-          curl --fail --silent --show-error --location \
-            "https://pelecomalma.com.br/bioestimulador/?run=$GITHUB_RUN_ID" \
-            | grep -q 'Bioestimulador de colágeno no rosto'
+          ssh "${ssh_options[@]}" \
+            "$HOSTINGER_USER@$HOSTINGER_HOST" \
+            "grep -q 'Bioestimulador de colágeno no rosto' '$remote_root/index.html'"
+
+          # Hostinger can block GitHub-hosted runner IPs with HTTP 403 even while
+          # the public page is healthy, so HTTP is recorded here as a diagnostic.
+          public_status=$(curl --silent --show-error --location \
+            --output /dev/null --write-out '%{http_code}' \
+            "https://pelecomalma.com.br/bioestimulador/?run=$GITHUB_RUN_ID" || true)
+          echo "Public endpoint returned HTTP ${public_status:-000} from the GitHub runner."
